@@ -1,5 +1,18 @@
+<script>
+    import { fdNavbar } from '@/components';
+
+    export default {
+        components: {
+            fdNavbar
+        }
+    };
+</script>
+
 <template>
-    <div>KAKA</div>
+    <div>
+        <fd-navbar />
+        <router-view :key="this.$route.path" />
+    </div>
 </template>
 
 <style lang="less">

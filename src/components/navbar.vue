@@ -25,11 +25,11 @@
             font-family: @main-font;
             padding: 0 3rem;
             text-decoration: none;
+            transition-duration: 0.4s;
 
             &:hover {
                 color: @navlink-hover-color;
                 .blurry-text-shadow(@navlink-color);
-                transition-duration: 0.4s;
             }
 
             &:active {

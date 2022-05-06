@@ -3,9 +3,8 @@
  *
  * Aggregate export file for our views.
  */
-import fantasy from './fantasy.vue';
+import album from './album.vue';
 import home from './home.vue';
-import misc from './misc.vue';
-import trips from './trips.vue';
+import section from './section.vue';
 
-export { fantasy, home, misc, trips };
+export { album, home, section };

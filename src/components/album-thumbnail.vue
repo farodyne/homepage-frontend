@@ -64,7 +64,13 @@
 
             img {
                 border: 1px solid @thumbnail-border-color;
-                .box-shadow(0px 0px 25px 0px #111);
+                transition-duration: 0.5s;
+                .box-shadow(0px 0px 40px 0px #111);
+
+                &:hover {
+                    border: 1px solid @navlink-hover-color;
+                    .box-shadow(0 0 30px 0px @navlink-hover-color);
+                }
             }
 
             .caption {
@@ -77,6 +83,12 @@
 
         a {
             text-decoration: none;
+            transition-duration: 0.5s;
+
+            &:hover {
+                color: @navlink-hover-color;
+                .blurry-text-shadow(@navlink-color);
+            }
         }
     }
 </style>

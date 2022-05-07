@@ -17,7 +17,11 @@
         font-weight: 500;
         height: 6rem;
         justify-content: center;
+        position: fixed;
         text-transform: uppercase;
+        top: 0;
+        width: 100%;
+        z-index: 100;
 
         a {
             color: @navlink-color;

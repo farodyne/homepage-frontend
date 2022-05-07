@@ -1,5 +1,18 @@
+<script>
+    import { fdFrontpageCarousel } from '@/components';
+
+    export default {
+        components: {
+            fdFrontpageCarousel
+        }
+    };
+</script>
+
 <template>
-    <div class="logo">Federico Engler</div>
+    <div>
+        <div class="logo">Federico Engler</div>
+        <fd-frontpage-carousel />
+    </div>
 </template>
 
 <style lang="less" scoped>

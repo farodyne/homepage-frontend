@@ -123,8 +123,15 @@
         <!-- The backdrop image. -->
         <img :src="backdropUrl" />
 
-        <!-- The carousel element. -->
-        <div class="carousel" v-for="image in images" :key="image.url">
+        <!-- The image captions. -->
+        <div class="captions" v-for="image in images" :key="image.url">
+            <span :class="{ visible: image.visible, transparent: !image.visible }">
+                {{ image.caption }}
+            </span>
+        </div>
+
+        <!-- The carousel images. -->
+        <div class="images" v-for="image in images" :key="image.url">
             <img :src="image.url" :class="{ visible: image.visible, transparent: !image.visible }" />
         </div>
     </div>
@@ -136,7 +143,7 @@
     .carousel-container {
         display: block;
         height: auto;
-        margin-top: 3rem;
+        margin-top: 4rem;
         position: relative;
         padding: 0;
         width: 100%;
@@ -144,14 +151,34 @@
         .box-shadow(0px 0px 40px 0px #111);
 
         @media @mobile-tight {
-            margin-top: 2rem;
+            margin-top: 3.6rem;
         }
 
         img {
             width: 100%;
         }
 
-        .carousel {
+        .captions {
+            color: @caption-color;
+            font-family: @caption-font;
+            font-size: 1.2rem;
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: -2rem;
+
+            .visible {
+                transition: all 2s ease-in-out;
+                opacity: 0.9;
+            }
+
+            .transparent {
+                transition: all 2s ease-in-out;
+                opacity: 0;
+            }
+        }
+
+        .images {
             position: absolute;
             top: 0;
             left: 0;

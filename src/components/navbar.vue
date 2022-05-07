@@ -13,7 +13,7 @@
     nav {
         align-items: center;
         display: flex;
-        font-size: @navlink-font-size;
+        font-size: 2.4rem;
         font-weight: 500;
         height: 6rem;
         justify-content: center;
@@ -23,11 +23,16 @@
         width: 100%;
         z-index: 100;
 
+        @media @mobile-tight {
+            font-size: 2rem;
+            height: 5rem;
+        }
+
         a {
             color: @navlink-color;
             display: flex;
             font-family: @main-font;
-            padding: 0 3rem;
+            padding: 0 2.4rem;
             text-decoration: none;
             transition-duration: 0.4s;
 

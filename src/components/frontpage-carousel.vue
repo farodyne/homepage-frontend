@@ -143,6 +143,10 @@
 
         .box-shadow(0px 0px 40px 0px #111);
 
+        @media @mobile-tight {
+            margin-top: 2rem;
+        }
+
         img {
             width: 100%;
         }

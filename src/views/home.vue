@@ -21,8 +21,13 @@
     .logo {
         color: @logo-color;
         font-family: @logo-font;
-        font-size: @logo-font-size;
+        font-size: 5rem;
         margin-top: @content-top-margin;
         text-align: center;
+
+        @media @mobile-tight {
+            font-size: 4rem;
+            margin-top: @content-mobile-top-margin;
+        }
     }
 </style>

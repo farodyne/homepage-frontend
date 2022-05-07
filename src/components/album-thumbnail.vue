@@ -64,7 +64,8 @@
 
             img {
                 border: 1px solid @thumbnail-border-color;
-                transition-duration: 0.5s;
+                border-radius: 10px;
+                transition-duration: 0.8s;
                 .box-shadow(0px 0px 40px 0px #111);
 
                 &:hover {

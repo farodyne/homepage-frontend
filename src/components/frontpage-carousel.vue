@@ -165,7 +165,7 @@
             position: absolute;
             width: 100%;
             text-align: center;
-            top: -2rem;
+            top: -2.1rem;
 
             .visible {
                 transition: all 2s ease-in-out;

@@ -34,6 +34,20 @@
         },
 
         /**
+         * Computed properties.
+         */
+        computed: {
+            ratio() {
+                console.log('AAAAAAAAAAAAAAA', this.album?.height / this.album?.width);
+                return this.album?.height / this.album?.width;
+            },
+
+            maxWidth() {
+                return `max-width: ${this.album?.width}px;`;
+            }
+        },
+
+        /**
          * Component methods.
          */
         methods: {
@@ -48,8 +62,14 @@
 
 <template>
     <div v-if="album" class="slider-container">
-        <vueper-slides :slide-ratio="850 / 1275" class="slides" @ready="handleSliderEVent" @slide="handleSliderEVent">
-            <vueper-slide v-for="(slide, i) in album.images" :key="i" :image="slide.url" />
+        <vueper-slides
+            :slide-ratio="ratio"
+            class="slides"
+            :style="maxWidth"
+            @ready="handleSliderEVent"
+            @slide="handleSliderEVent"
+        >
+            <vueper-slide v-for="(slide, i) in album.images" :key="i" :image="slide.url" class="slide" />
         </vueper-slides>
 
         <div class="image-caption">
@@ -63,17 +83,23 @@
 
     .slider-container {
         height: auto;
-        margin-top: calc(@content-top-margin + 2rem);
+        margin: calc(@content-top-margin + 1rem) 5px 0 5px;
 
         .slides {
-            border: 1px solid @slider-border-color;
             margin: 0 auto;
-            max-width: 1275px;
+            background-color: transparent;
 
-            .box-shadow(0 0 25px 0 @dark-shadow-color);
+            // .box-shadow(0 0 2rem 0 @dark-shadow-color);
 
             @media @mobile-tight {
                 max-width: 98%;
+            }
+
+            .slide {
+                background-color: transparent;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
             }
         }
 
@@ -91,6 +117,15 @@
         font-family: 'Oswald', sans-serif;
         margin-top: 12px;
         transition: all 3s ease-in-out;
+    }
+
+    .vueperslides__parallax-wrapper {
+        background: @body-background;
+
+        &:before,
+        &:after {
+            box-shadow: none !important;
+        }
     }
 
     .vueperslides__arrow {

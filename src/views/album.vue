@@ -96,10 +96,10 @@
             }
 
             .slide {
-                background-color: transparent;
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
+                // filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.5));
             }
         }
 
@@ -119,6 +119,7 @@
         transition: all 3s ease-in-out;
     }
 
+    // Vueper slides overrides.
     .vueperslides__parallax-wrapper {
         background: @body-background;
 

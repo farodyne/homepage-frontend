@@ -38,7 +38,6 @@
          */
         computed: {
             ratio() {
-                console.log('AAAAAAAAAAAAAAA', this.album?.height / this.album?.width);
                 return this.album?.height / this.album?.width;
             },
 
@@ -64,12 +63,19 @@
     <div v-if="album" class="slider-container">
         <vueper-slides
             :slide-ratio="ratio"
+            :infinite="false"
             class="slides"
             :style="maxWidth"
             @ready="handleSliderEVent"
             @slide="handleSliderEVent"
         >
-            <vueper-slide v-for="(slide, i) in album.images" :key="i" :image="slide.url" class="slide" />
+            <vueper-slide v-for="(slide, i) in album.images" :key="i" class="slide">
+                <template #content>
+                    <div class="content">
+                        <img :src="slide.url" />
+                    </div>
+                </template>
+            </vueper-slide>
         </vueper-slides>
 
         <div class="image-caption">
@@ -87,19 +93,25 @@
 
         .slides {
             margin: 0 auto;
-            background-color: transparent;
-
-            // .box-shadow(0 0 2rem 0 @dark-shadow-color);
 
             @media @mobile-tight {
                 max-width: 98%;
             }
 
             .slide {
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                // filter: drop-shadow(0 0 0.2rem rgba(0, 0, 0, 0.5));
+                .content {
+                    background: @body-background;
+                    display: flex;
+                    height: 100%;
+                    justify-content: center;
+
+                    img {
+                        margin-top: 1rem;
+                        max-height: 97%;
+                        z-index: 5;
+                        .box-shadow(0 0 1rem 0 @dark-shadow-color);
+                    }
+                }
             }
         }
 

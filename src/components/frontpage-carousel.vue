@@ -148,7 +148,7 @@
         padding: 0;
         width: 100%;
 
-        .box-shadow(0px 0px 40px 0px #111);
+        .box-shadow(0px 0px 40px 0px @dark-shadow-color);
 
         @media @mobile-tight {
             margin-top: 3.6rem;

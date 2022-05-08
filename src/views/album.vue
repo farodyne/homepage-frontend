@@ -48,23 +48,13 @@
 
 <template>
     <div v-if="album" class="slider-container">
-        <vueper-slides
-            :slide-ratio="850 / 1275"
-            class="fd-slides"
-            @ready="handleSliderEVent"
-            @slide="handleSliderEVent"
-        >
+        <vueper-slides :slide-ratio="850 / 1275" class="slides" @ready="handleSliderEVent" @slide="handleSliderEVent">
             <vueper-slide v-for="(slide, i) in album.images" :key="i" :image="slide.url" />
         </vueper-slides>
 
-        <!--
-        <fd-image-captions v-model="album.images" />
-        <div class="fd-image-caption">
-            <span>
-                {{ album.images[index].caption }}
-            </span>
+        <div class="image-caption">
+            <span>{{ album.images[index].caption }}</span>
         </div>
-        -->
     </div>
 </template>
 
@@ -74,18 +64,25 @@
     .slider-container {
         height: auto;
         margin-top: calc(@content-top-margin + 2rem);
-    }
 
-    .fd-slides {
-        border: 1px solid @slider-border-color;
-        margin: 0 auto;
-        max-width: 1275px;
-        // width: 1275px;
+        .slides {
+            border: 1px solid @slider-border-color;
+            margin: 0 auto;
+            max-width: 1275px;
 
-        .box-shadow(0px 0px 25px 0px #111);
+            .box-shadow(0 0 25px 0 @dark-shadow-color);
 
-        @media @mobile-tight {
-            max-width: 98%;
+            @media @mobile-tight {
+                max-width: 98%;
+            }
+        }
+
+        .image-caption {
+            color: @caption-color;
+            font-family: @caption-font;
+            font-size: @caption-font-size;
+            margin-top: 6px;
+            text-align: center;
         }
     }
 

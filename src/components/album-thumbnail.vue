@@ -77,7 +77,7 @@
             .caption {
                 color: @caption-color;
                 font-family: @main-font;
-                font-size: 1.4rem;
+                font-size: @caption-font-size;
                 margin-top: 3px;
             }
         }

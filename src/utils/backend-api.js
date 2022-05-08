@@ -45,6 +45,15 @@ class BackendApi {
         const { data } = await axios.get(`${this.baseUrl}/albums/${id}`);
         return data;
     }
+
+    /**
+     * Method to fetch the newest, latest albums.
+     * @returns An array with the latest albumbs.
+     */
+    async getNews() {
+        const { data } = await axios.get(`${this.baseUrl}/news`);
+        return data;
+    }
 }
 
 export default BackendApi;

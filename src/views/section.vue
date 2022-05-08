@@ -51,7 +51,9 @@
 
 <template>
     <div class="section">
-        <fd-album-thumbnail v-for="album in section.albums" :key="album.id" :album="album" />
+        <div class="thumbnail-container" v-for="album in section.albums" :key="album.id">
+            <fd-album-thumbnail :album="album" />
+        </div>
     </div>
 </template>
 
@@ -64,5 +66,9 @@
         justify-content: space-around;
         margin: calc(@content-top-margin + 1rem) auto 0 auto;
         max-width: @desktop-width;
+
+        .thumbnail-container {
+            margin: 2rem;
+        }
     }
 </style>

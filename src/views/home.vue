@@ -1,9 +1,10 @@
 <script>
-    import { fdFrontpageCarousel } from '@/components';
+    import { fdFrontpageCarousel, fdNews } from '@/components';
 
     export default {
         components: {
-            fdFrontpageCarousel
+            fdFrontpageCarousel,
+            fdNews
         }
     };
 </script>
@@ -12,6 +13,7 @@
     <div>
         <div class="logo">Federico Engler</div>
         <fd-frontpage-carousel />
+        <fd-news />
     </div>
 </template>
 

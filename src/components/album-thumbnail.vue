@@ -41,7 +41,7 @@
 </script>
 
 <template>
-    <div class="album-thumbnail">
+    <div>
         <router-link :to="{ path: `/album/${album.id}` }">
             <div class="image">
                 <img :src="album.url" />
@@ -56,40 +56,36 @@
 <style lang="less" scoped>
     @import '../styles/common.less';
 
-    .album-thumbnail {
-        margin: 2rem;
+    .image {
+        text-align: center;
 
-        .image {
-            text-align: center;
+        img {
+            border: 1px solid @thumbnail-border-color;
+            border-radius: 10px;
+            transition-duration: 0.8s;
+            .box-shadow(0px 0px 40px 0px @dark-shadow-color);
 
-            img {
-                border: 1px solid @thumbnail-border-color;
-                border-radius: 10px;
-                transition-duration: 0.8s;
-                .box-shadow(0px 0px 40px 0px #111);
-
-                &:hover {
-                    border: 1px solid @navlink-hover-color;
-                    .box-shadow(0 0 30px 0px @navlink-hover-color);
-                }
-            }
-
-            .caption {
-                color: @caption-color;
-                font-family: @main-font;
-                font-size: @caption-font-size;
-                margin-top: 3px;
+            &:hover {
+                border: 1px solid @navlink-hover-color;
+                .box-shadow(0 0 30px 0px @navlink-hover-color);
             }
         }
 
-        a {
-            text-decoration: none;
-            transition-duration: 0.5s;
+        .caption {
+            color: @caption-color;
+            font-family: @main-font;
+            font-size: @caption-font-size;
+            margin-top: 3px;
+        }
+    }
 
-            &:hover {
-                color: @navlink-hover-color;
-                .blurry-text-shadow(@navlink-color);
-            }
+    a {
+        text-decoration: none;
+        transition-duration: 0.5s;
+
+        &:hover {
+            color: @navlink-hover-color;
+            .blurry-text-shadow(@navlink-color);
         }
     }
 </style>

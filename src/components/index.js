@@ -7,5 +7,6 @@
 import fdAlbumThumbnail from './album-thumbnail.vue';
 import fdFrontpageCarousel from './frontpage-carousel.vue';
 import fdNavbar from './navbar.vue';
+import fdNews from './news.vue';
 
-export { fdAlbumThumbnail, fdFrontpageCarousel, fdNavbar };
+export { fdAlbumThumbnail, fdFrontpageCarousel, fdNavbar, fdNews };

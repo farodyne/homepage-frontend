@@ -2,11 +2,9 @@
     /**
      * Author: Federico Engler
      *
-     * This component implements the functionality for displaying the list of thumbnails
-     * for the albums in a particular section of albums.
+     * This component implements our simple album view.
      */
-    import { VueperSlides, VueperSlide } from 'vueperslides';
-    import 'vueperslides/dist/vueperslides.css';
+    import VLazyImage from 'v-lazy-image';
     import { BackendApi, settings } from '@/utils';
 
     export default {
@@ -28,125 +26,39 @@
          */
         data() {
             return {
-                album: undefined,
-                index: 0
+                album: undefined
             };
         },
 
-        /**
-         * Computed properties.
-         */
-        computed: {
-            ratio() {
-                return this.album?.height / this.album?.width;
-            },
-
-            maxWidth() {
-                return `max-width: ${this.album?.width}px;`;
-            }
-        },
-
-        /**
-         * Component methods.
-         */
-        methods: {
-            handleSliderEVent(event) {
-                this.index = event?.currentSlide?.index || 0;
-            }
-        },
-
-        components: { VueperSlides, VueperSlide }
+        components: {
+            VLazyImage
+        }
     };
 </script>
 
 <template>
-    <div v-if="album" class="slider-container">
-        <vueper-slides
-            :slide-ratio="ratio"
-            :infinite="false"
-            class="slides"
-            :style="maxWidth"
-            @ready="handleSliderEVent"
-            @slide="handleSliderEVent"
-        >
-            <vueper-slide v-for="(slide, i) in album.images" :key="i" class="slide">
-                <template #content>
-                    <div class="content">
-                        <img :src="slide.url" />
-                    </div>
-                </template>
-            </vueper-slide>
-        </vueper-slides>
-
-        <div class="image-caption">
-            <span>{{ album.images[index].caption }}</span>
+    <div v-if="album" class="album-container">
+        <div class="image" v-for="(slide, i) in album.images" :key="i">
+            <v-lazy-image :src="slide.url" />
         </div>
     </div>
 </template>
 
-<style lang="less">
+<style lang="less" scoped>
     @import '../styles/common.less';
 
-    .slider-container {
-        height: auto;
-        margin: calc(@content-top-margin + 1rem) 5px 0 5px;
+    .album-container {
+        margin: @content-top-margin auto 0 auto;
+        max-width: 1275px;
 
-        .slides {
-            margin: 0 auto;
+        .image {
+            padding: 20px;
+            height: auto;
 
-            @media @mobile-tight {
-                max-width: 98%;
-            }
-
-            .slide {
-                .content {
-                    background: @body-background;
-                    display: flex;
-                    height: 100%;
-                    justify-content: center;
-
-                    img {
-                        margin-top: 1rem;
-                        max-height: 97%;
-                        z-index: 5;
-                        .box-shadow(0 0 1rem 0 @dark-shadow-color);
-                    }
-                }
+            img {
+                width: 100%;
+                .box-shadow(0 0 2rem 0 @dark-shadow-color);
             }
         }
-
-        .image-caption {
-            color: @caption-color;
-            font-family: @caption-font;
-            font-size: @caption-font-size;
-            margin-top: 6px;
-            text-align: center;
-        }
-    }
-
-    .fd-image-caption {
-        color: @caption-color;
-        font-family: 'Oswald', sans-serif;
-        margin-top: 12px;
-        transition: all 3s ease-in-out;
-    }
-
-    // Vueper slides overrides.
-    .vueperslides__parallax-wrapper {
-        background: @body-background;
-
-        &:before,
-        &:after {
-            box-shadow: none !important;
-        }
-    }
-
-    .vueperslides__arrow {
-        color: @slider-arrow-color;
-    }
-
-    .vueperslides__bullet .default {
-        width: 7px;
-        height: 7px;
     }
 </style>

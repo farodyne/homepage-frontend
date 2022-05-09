@@ -68,6 +68,11 @@
                 font-size: 1.6rem;
                 padding-top: 2px;
                 text-align: center;
+
+                @media @mobile-tight {
+                    font-size: 1.4rem;
+                    padding-top: 1px;
+                }
             }
 
             @media @mobile-tight {

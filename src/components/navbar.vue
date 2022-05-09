@@ -13,8 +13,9 @@
 
     nav {
         align-items: center;
+        background-color: @body-background-color;
         display: flex;
-        font-size: 2.4rem;
+        font-size: 2.6rem;
         font-weight: 500;
         height: 6rem;
         justify-content: center;
@@ -23,6 +24,9 @@
         top: 0;
         width: 100%;
         z-index: 100;
+
+        filter: brightness(0.86);
+        .box-shadow(0 0 1rem 0 @dark-shadow-color);
 
         @media @mobile-tight {
             font-size: 2rem;

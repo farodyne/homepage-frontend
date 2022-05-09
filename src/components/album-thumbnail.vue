@@ -47,6 +47,10 @@
                 border: 1px solid @navlink-hover-color;
                 .box-shadow(0 0 30px 0px @navlink-hover-color);
             }
+
+            @media @mobile-tight {
+                width: 80%;
+            }
         }
 
         .caption {

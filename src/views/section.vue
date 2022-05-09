@@ -68,7 +68,12 @@
         max-width: @desktop-width;
 
         .thumbnail-container {
+            display: flex;
             margin: 2rem;
+
+            @media @mobile {
+                margin: 1rem;
+            }
         }
     }
 </style>

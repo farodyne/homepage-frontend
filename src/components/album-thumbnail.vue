@@ -4,38 +4,16 @@
      *
      * This component is used to render an album thumbnail.
      */
-    import { BackendApi, settings } from '@/utils';
-
     export default {
         /**
          * The parameters for this component are:
-         * @param {Object} album - An album object.
+         * @param {Object} album - An album thumbnail object.
          */
         props: {
             album: {
                 type: Object,
                 required: true
             }
-        },
-
-        /**
-         * Component creation hook.
-         */
-        async created() {
-            try {
-                this.section = await new BackendApi(settings).getSection(this.type);
-            } catch (error) {
-                console.error(`Failed to get section "${this.type}" from server.`);
-            }
-        },
-
-        /**
-         * Reactive component properties.
-         */
-        data() {
-            return {
-                section: {}
-            };
         }
     };
 </script>

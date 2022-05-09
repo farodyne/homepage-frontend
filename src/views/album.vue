@@ -66,8 +66,12 @@
                 color: @caption-color;
                 font-family: @caption-font;
                 font-size: 1.6rem;
-                padding-top: 3px;
+                padding-top: 2px;
                 text-align: center;
+            }
+
+            @media @mobile-tight {
+                padding: 2rem 1rem 2rem 1rem;
             }
         }
     }

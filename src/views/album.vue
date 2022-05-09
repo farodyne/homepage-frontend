@@ -59,7 +59,7 @@
 
             img {
                 width: 100%;
-                .box-shadow(0 0 2rem 0 @dark-shadow-color);
+                .box-shadow(0 0 2.4rem 0 @dark-shadow-color);
             }
 
             .caption {

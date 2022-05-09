@@ -11,7 +11,7 @@
 
 <template>
     <div>
-        <div class="logo">Federico Engler</div>
+        <h1>Federico Engler</h1>
         <fd-frontpage-carousel />
         <fd-news />
     </div>
@@ -19,17 +19,4 @@
 
 <style lang="less" scoped>
     @import '../styles/common.less';
-
-    .logo {
-        color: @logo-color;
-        font-family: @logo-font;
-        font-size: 5rem;
-        margin-top: @content-top-margin;
-        text-align: center;
-
-        @media @mobile-tight {
-            font-size: 4rem;
-            margin-top: @content-mobile-top-margin;
-        }
-    }
 </style>

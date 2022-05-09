@@ -161,11 +161,11 @@
         .captions {
             color: @caption-color;
             font-family: @caption-font;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             position: absolute;
             width: 100%;
             text-align: center;
-            top: -2.1rem;
+            top: -2.5rem;
 
             .visible {
                 transition: all 2s ease-in-out;

@@ -40,7 +40,7 @@
 
 <template>
     <div class="news">
-        <h1>Latest albums</h1>
+        <h2>Latest albums</h2>
         <div class="thumbnails">
             <div class="thumbnail-container" v-for="album in news" :key="album.id">
                 <fd-album-thumbnail :album="album" />
@@ -57,12 +57,12 @@
         max-width: 800px;
         text-align: center;
 
-        h1 {
+        h2 {
             color: @news-color;
             font-family: @logo-font;
             font-size: 4rem;
             font-weight: 100;
-            margin: 3rem 0 1rem 0;
+            margin: 2rem 0 1rem 0;
         }
 
         .thumbnails {

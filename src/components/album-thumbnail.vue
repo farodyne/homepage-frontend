@@ -49,7 +49,7 @@
             }
 
             @media @mobile-tight {
-                width: 80%;
+                width: 90%;
             }
         }
 

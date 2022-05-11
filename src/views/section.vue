@@ -41,6 +41,15 @@
         },
 
         /**
+         * Computed properties.
+         */
+        computed: {
+            backdropUrl() {
+                return `${settings.contentBase}/backdrops/${this.type}.jpg`;
+            }
+        },
+
+        /**
          * Used sub-components.
          */
         components: {
@@ -50,15 +59,46 @@
 </script>
 
 <template>
-    <div class="section">
-        <div class="thumbnail-container" v-for="album in section.albums" :key="album.id">
-            <fd-album-thumbnail :album="album" />
+    <div>
+        <div class="backdrop">
+            <img :src="backdropUrl" />
+            <div class="gradient"></div>
+        </div>
+        <div class="section">
+            <div class="thumbnail-container" v-for="album in section.albums" :key="album.id">
+                <fd-album-thumbnail :album="album" />
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="less" scoped>
     @import '../styles/common.less';
+
+    .backdrop {
+        opacity: 0.35;
+        position: fixed;
+        width: 100%;
+        z-index: -1;
+        top: 6rem;
+
+        @media @mobile {
+            top: 5rem;
+        }
+
+        .gradient {
+            background-image: linear-gradient(to bottom, rgba(255, 0, 0, 0), @body-background-color);
+            position: absolute;
+            height: 50%;
+            bottom: 0;
+            width: 100%;
+        }
+
+        img {
+            filter: grayscale(0.35);
+            width: 100%;
+        }
+    }
 
     .section {
         display: flex;

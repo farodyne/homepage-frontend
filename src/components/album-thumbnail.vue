@@ -41,7 +41,7 @@
             border: 1px solid @thumbnail-border-color;
             border-radius: 10px;
             transition-duration: 0.8s;
-            .box-shadow(0px 0px 40px 0px @dark-shadow-color);
+            .box-shadow(0 0 3rem 0 #000);
 
             &:hover {
                 border: 1px solid @navlink-hover-color;
@@ -58,6 +58,7 @@
             font-family: @main-font;
             font-size: @caption-font-size;
             margin-top: 3px;
+            text-shadow: 1px 1px @dark-shadow-color;
         }
     }
 

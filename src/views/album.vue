@@ -30,6 +30,18 @@
             };
         },
 
+        /**
+         * Computed properties.
+         */
+        computed: {
+            maxWidth() {
+                return `max-width: ${this.album?.width}px;`;
+            }
+        },
+
+        /**
+         * Our used sub-components.
+         */
         components: {
             VLazyImage
         }
@@ -37,7 +49,7 @@
 </script>
 
 <template>
-    <div v-if="album" class="album-container">
+    <div v-if="album" class="album-container" :style="maxWidth">
         <h1>{{ album.caption }}</h1>
         <div class="image" v-for="(image, i) in album.images" :key="i">
             <v-lazy-image :src="image.url" />

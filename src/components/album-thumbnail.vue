@@ -38,13 +38,13 @@
         text-align: center;
 
         img {
-            border: 2px solid @thumbnail-border-color;
+            border: 1px solid @thumbnail-border-color;
             border-radius: 10px;
             transition-duration: 0.8s;
             .box-shadow(0 0 3rem 0 #000);
 
             &:hover {
-                border: 2px solid @navlink-hover-color;
+                border: 1px solid @navlink-hover-color;
                 .box-shadow(0 0 30px 0px @navlink-hover-color);
             }
 

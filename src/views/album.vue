@@ -26,7 +26,8 @@
          */
         data() {
             return {
-                album: undefined
+                album: undefined,
+                settings
             };
         },
 
@@ -51,6 +52,14 @@
 <template>
     <div v-if="album" class="album-container" :style="maxWidth">
         <h1>{{ album.caption }}</h1>
+
+        <!-- Render the album videos. -->
+        <div class="video" v-for="(video, i) in album.videos" :key="i">
+            <img :src="`${settings.contentBase}/backdrops/video.png`" />
+            <iframe :src="video.url" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Render the album images. -->
         <div class="image" v-for="(image, i) in album.images" :key="i">
             <v-lazy-image :src="image.url" />
             <div class="caption">{{ image.caption }}</div>
@@ -65,30 +74,44 @@
         margin: 1rem auto 0 auto;
         max-width: 1275px;
 
+        .video,
         .image {
-            padding: 2rem 2rem 3rem 2rem;
             height: auto;
+            padding: 2rem 2rem 3rem 2rem;
 
             img {
                 width: 100%;
                 .box-shadow(0 0 2.4rem 0 @dark-shadow-color);
             }
 
-            .caption {
-                color: @caption-color;
-                font-family: @caption-font;
-                font-size: 1.6rem;
-                padding-top: 2px;
-                text-align: center;
-
-                @media @mobile-tight {
-                    font-size: 1.4rem;
-                    padding-top: 1px;
-                }
-            }
-
             @media @mobile-tight {
                 padding: 2rem 1rem 2rem 1rem;
+            }
+        }
+
+        .video {
+            position: relative;
+
+            iframe {
+                position: absolute;
+                left: 2rem;
+                height: calc(100% - 5rem);
+                top: 2rem;
+                width: calc(100% - 4rem);
+                z-index: 10;
+            }
+        }
+
+        .caption {
+            color: @caption-color;
+            font-family: @caption-font;
+            font-size: 1.6rem;
+            padding-top: 2px;
+            text-align: center;
+
+            @media @mobile-tight {
+                font-size: 1.4rem;
+                padding-top: 1px;
             }
         }
     }

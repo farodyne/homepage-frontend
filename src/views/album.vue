@@ -60,7 +60,7 @@
         </div>
 
         <!-- Render the album images. -->
-        <div class="image" v-for="(image, i) in album.images" :key="i">
+        <div class="image" v-for="(image, i) in album.images" :key="i" oncontextmenu="return false;">
             <v-lazy-image :src="image.url" />
             <div class="caption">{{ image.caption }}</div>
         </div>

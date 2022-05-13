@@ -131,7 +131,7 @@
         </div>
 
         <!-- The carousel images. -->
-        <div class="images" v-for="image in images" :key="image.url">
+        <div class="images" v-for="image in images" :key="image.url" oncontextmenu="return false;">
             <img :src="image.url" :class="{ visible: image.visible, transparent: !image.visible }" />
         </div>
     </div>

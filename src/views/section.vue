@@ -109,7 +109,7 @@
 
         .thumbnail-container {
             display: flex;
-            margin: 2rem;
+            margin: 1rem;
 
             @media @mobile {
                 margin: 1rem;

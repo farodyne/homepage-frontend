@@ -19,13 +19,13 @@
 </script>
 
 <template>
-    <div>
+    <div class="thumbnail-container">
         <router-link :to="{ path: `/album/${album.id}` }">
-            <div class="image">
+            <div>
                 <img :src="album.url" />
-                <div class="caption">
-                    {{ album.caption }}
-                </div>
+            </div>
+            <div class="caption">
+                {{ album.caption }}
             </div>
         </router-link>
     </div>
@@ -34,41 +34,37 @@
 <style lang="less" scoped>
     @import '../styles/common.less';
 
-    .image {
-        text-align: center;
+    .thumbnail-container {
+        background-color: @thumbnail-background-color;
+        border: 1px solid @thumbnail-border-color;
+        border-radius: 10px;
+        overflow: hidden;
+        transition-duration: 0.3s;
 
-        img {
-            border: 1px solid @thumbnail-border-color;
-            border-radius: 10px;
-            transition-duration: 0.8s;
-            .box-shadow(0 0 3rem 0 #000);
-
-            &:hover {
-                border: 1px solid @navlink-hover-color;
-                .box-shadow(0 0 30px 0px @navlink-hover-color);
-            }
-
-            @media @mobile-tight {
-                width: 90%;
-            }
-        }
+        .box-shadow(0 0 2rem 0 @dark-shadow-color);
 
         .caption {
-            color: @caption-color;
-            font-family: @main-font;
-            font-size: @caption-font-size;
-            margin-top: 3px;
-            text-shadow: 1px 1px @dark-shadow-color;
+            color: @thumbnail-color;
+            font-family: @thumbnail-font;
+            font-size: 1.2rem;
+            padding: 3px 0 4px 0;
+            text-align: center;
         }
-    }
 
-    a {
-        text-decoration: none;
-        transition-duration: 0.5s;
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            transition-duration: 0.25s;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+        }
 
         &:hover {
-            color: @navlink-hover-color;
-            .blurry-text-shadow(@navlink-color);
+            .box-shadow(0 0 3rem 0 @navlink-hover-color);
         }
     }
 </style>

@@ -14,6 +14,7 @@
     nav {
         align-items: center;
         background-color: @body-background-color;
+        border-bottom: 1px solid @carousel-border-color;
         display: flex;
         font-size: 2.6rem;
         font-weight: 500;

@@ -5,6 +5,8 @@
  * that apply in our frontend application.
  */
 export default {
+    apiUser: import.meta.env.VITE_API_USER,
+    apiPassword: import.meta.env.VITE_API_PASSWORD,
     contentBase: import.meta.env.VITE_API_CONTENT_BASE || 'https://www.farodyne.com/content',
     backendBase: import.meta.env.VITE_API_BACKEND_BASE || 'https://www.farodyne.com/content/rest/v1',
     numberOfFrontpageImages: import.meta.env.VITE_API_NO_OF_FRONTPAGE_IMAGES || 5,

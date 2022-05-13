@@ -15,6 +15,9 @@ class BackendApi {
      */
     constructor(settings) {
         this.baseUrl = settings.backendBase;
+        this.options = {
+            auth: { username: settings.apiUser, password: settings.apiPassword }
+        };
     }
 
     /**
@@ -22,7 +25,7 @@ class BackendApi {
      * @returns An array of frontpage carousel images.
      */
     async getFrontpageImages() {
-        const { data } = await axios.get(`${this.baseUrl}/albums/carousel-images`);
+        const { data } = await axios.get(`${this.baseUrl}/albums/carousel-images`, this.options);
         return data;
     }
 
@@ -32,7 +35,7 @@ class BackendApi {
      * @returns An array of photo albums.
      */
     async getSection(type) {
-        const { data } = await axios.get(`${this.baseUrl}/sections/${type}`);
+        const { data } = await axios.get(`${this.baseUrl}/sections/${type}`, this.options);
         return data;
     }
 
@@ -42,7 +45,7 @@ class BackendApi {
      * @returns The specified photo album.
      */
     async getAlbum(id) {
-        const { data } = await axios.get(`${this.baseUrl}/albums/${id}`);
+        const { data } = await axios.get(`${this.baseUrl}/albums/${id}`, this.options);
         return data;
     }
 
@@ -51,7 +54,7 @@ class BackendApi {
      * @returns An array with the latest albumbs.
      */
     async getNews(count) {
-        const { data } = await axios.get(`${this.baseUrl}/news/${count}`);
+        const { data } = await axios.get(`${this.baseUrl}/news/${count}`, this.options);
         return data;
     }
 }

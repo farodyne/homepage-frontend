@@ -99,6 +99,13 @@
                 top: 2rem;
                 width: calc(100% - 4rem);
                 z-index: 10;
+
+                @media @mobile-tight {
+                    height: calc(100% - 4rem);
+                    left: 1rem;
+                    top: 2rem;
+                    width: calc(100% - 2rem);
+                }
             }
         }
 

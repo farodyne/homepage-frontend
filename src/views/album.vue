@@ -2,14 +2,16 @@
     /**
      * Author: Federico Engler
      *
-     * This component implements our simple album view.
+     * This component implements the view used to present an individual album. The
+     * album ID is provided as a path parameter and used to fetch the album details
+     * from the backend service.
      */
     import VLazyImage from 'v-lazy-image';
     import { BackendApi, settings } from '@/utils';
 
     export default {
         /**
-         * Component creation trigger.
+         * Component creation hook.
          */
         async created() {
             const { id } = this.$route.params;

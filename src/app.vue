@@ -1,7 +1,15 @@
 <script>
+    /**
+     * Author: Federico Engler
+     *
+     * The top level component for the Farodyne webpage.
+     */
     import { fdNavbar } from '@/components';
 
     export default {
+        /**
+         * Used sub-components in our template.
+         */
         components: {
             fdNavbar
         }

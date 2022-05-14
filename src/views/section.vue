@@ -60,10 +60,13 @@
 
 <template>
     <div>
+        <!-- Render the section backdrop. -->
         <div class="backdrop">
             <img :src="backdropUrl" />
             <div class="gradient"></div>
         </div>
+
+        <!-- Render the section thumbnails. -->
         <div class="section">
             <div class="thumbnail-container" v-for="album in section.albums" :key="album.id">
                 <fd-album-thumbnail :album="album" />

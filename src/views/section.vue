@@ -10,20 +10,12 @@
 
     export default {
         /**
-         * The parameters for this component are:
-         * @param {string} type - The type of section we wish to fetch.
-         */
-        props: {
-            type: {
-                type: String,
-                required: true
-            }
-        },
-
-        /**
          * Component creation hook.
          */
         async created() {
+            // Extract the section type from the route path.
+            this.type = this.$route.path.substring(1);
+
             try {
                 this.section = await new BackendApi(settings).getSection(this.type);
             } catch (error) {

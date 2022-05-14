@@ -20,7 +20,7 @@
 
 <template>
     <div class="thumbnail-container">
-        <router-link :to="{ path: `/album/${album.id}` }">
+        <router-link :to="`/${album.type}/${album.id}`">
             <div>
                 <img :src="album.url" />
             </div>

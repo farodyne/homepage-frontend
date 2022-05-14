@@ -7,16 +7,23 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { Route } from '@/models';
 import { routes } from '@/constants';
 import { album, home, section } from '@/views';
+import { h } from 'vue';
+import { RouterView } from 'vue-router';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
+        // If no route is specified, default to the "home" route.
         new Route('').forward(routes.home),
-        new Route(`${routes.home}`, home),
-        new Route(`${routes.trips}`, section, { type: routes.trips }),
-        new Route(`${routes.fantasy}`, section, { type: routes.fantasy }),
-        new Route(`${routes.misc}`, section, { type: routes.misc }),
-        new Route(`${routes.album}/:id`, album)
+
+        // Let the "home" component render the view for the "home" route.
+        new Route(`/${routes.home}`, home),
+
+        // For any other route that is not "home", it's either a section or
+        // an album in the particular section. This rule is required to ensure
+        // the correct router link in the navbar is highlighted as selected by
+        // the applied active CSS class in the Vue Router.
+        new Route('/:section', { render: () => h(RouterView) }, [new Route('', section), new Route(':id', album)])
     ]
 });
 

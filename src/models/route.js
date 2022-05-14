@@ -8,15 +8,14 @@
 export default class Route {
     /**
      * Create an instance of a Vue route in our application.
-     * @param {string} name - The name of the route.
+     * @param {string} path - The route path.
      * @param {Object} component - The view component for the route.
-     * @param {Object} props - The props object for the component.
+     * @param {Array} [children] - The optional children routes.
      */
-    constructor(name, component, props) {
-        this.name = name;
-        this.path = `/${name}`;
+    constructor(path, component, children) {
+        this.path = path;
         this.component = component;
-        this.props = props;
+        this.children = children;
     }
 
     /**

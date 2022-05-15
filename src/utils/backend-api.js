@@ -7,14 +7,15 @@
  * maintain.
  */
 import axios from 'axios';
+import settings from './settings';
 
 class BackendApi {
     /**
      * Creates an instance of the backend API class.
-     * @param {Object} settings - An environment settings object.
      */
-    constructor(settings) {
+    constructor() {
         this.baseUrl = settings.backendBase;
+
         this.options = {
             auth: { username: settings.apiUser, password: settings.apiPassword }
         };

@@ -95,7 +95,7 @@
              */
             async loadCarouselImages() {
                 try {
-                    const album = await new BackendApi(settings).getFrontpageImages();
+                    const album = await new BackendApi().getFrontpageImages();
                     const images = album.images.sort(() => 0.5 - Math.random());
                     const subset = images.slice(0, settings.numberOfFrontpageImages);
                     await this.preloadImages(subset);

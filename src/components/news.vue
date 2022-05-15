@@ -14,7 +14,7 @@
          */
         async created() {
             try {
-                this.news = await new BackendApi(settings).getNews(settings.numberOfNewsAlbums);
+                this.news = await new BackendApi().getNews(settings.numberOfNewsAlbums);
             } catch (error) {
                 console.error(`Failed to get album news from the server.`);
             }

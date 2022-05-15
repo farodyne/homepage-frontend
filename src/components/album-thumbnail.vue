@@ -2,7 +2,9 @@
     /**
      * Author: Federico Engler
      *
-     * This component is used to render an album thumbnail.
+     * This component is used to render an album thumbnail. The component uses
+     * condensed information about a particular album and renders its presentation
+     * image together with its caption.
      */
     export default {
         /**
@@ -21,9 +23,12 @@
 <template>
     <div class="thumbnail-container">
         <router-link :to="`/${album.type}/${album.id}`">
+            <!-- Render the thumbnail image. -->
             <div>
                 <img :src="album.url" />
             </div>
+
+            <!-- Render the caption text. -->
             <div class="caption">
                 {{ album.caption }}
             </div>

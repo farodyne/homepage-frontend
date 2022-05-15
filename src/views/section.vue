@@ -17,7 +17,7 @@
             this.type = this.$route.path.substring(1);
 
             try {
-                this.section = await new BackendApi(settings).getSection(this.type);
+                this.section = await new BackendApi().getSection(this.type);
             } catch (error) {
                 console.error(`Failed to get section "${this.type}" from server.`);
             }

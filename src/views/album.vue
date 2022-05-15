@@ -17,7 +17,7 @@
             const { id } = this.$route.params;
 
             try {
-                this.album = await new BackendApi(settings).getAlbum(id);
+                this.album = await new BackendApi().getAlbum(id);
             } catch (error) {
                 console.error(`Failed to get album "${id}" from server.`);
             }

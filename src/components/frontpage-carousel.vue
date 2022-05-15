@@ -119,21 +119,26 @@
 </script>
 
 <template>
-    <div class="carousel-container">
-        <!-- The backdrop image. -->
-        <img :src="backdropUrl" />
+    <div>
+        <div class="carousel-container">
+            <!-- The backdrop image. -->
+            <img :src="backdropUrl" />
 
-        <!-- The image captions. -->
-        <div class="captions" v-for="image in images" :key="image.url">
-            <span :class="{ visible: image.visible, transparent: !image.visible }">
-                {{ image.caption }}
-            </span>
+            <!-- The image captions. -->
+            <div class="captions" v-for="image in images" :key="image.url">
+                <span :class="{ visible: image.visible, transparent: !image.visible }">
+                    {{ image.caption }}
+                </span>
+            </div>
+
+            <!-- The carousel images. -->
+            <div class="images" v-for="image in images" :key="image.url" oncontextmenu="return false;">
+                <img :src="image.url" :class="{ visible: image.visible, transparent: !image.visible }" />
+            </div>
         </div>
 
-        <!-- The carousel images. -->
-        <div class="images" v-for="image in images" :key="image.url" oncontextmenu="return false;">
-            <img :src="image.url" :class="{ visible: image.visible, transparent: !image.visible }" />
-        </div>
+        <!-- Render the copyright text. -->
+        <div class="copyright">All images and videos © Federico Engler</div>
     </div>
 </template>
 
@@ -197,5 +202,13 @@
                 opacity: 0;
             }
         }
+    }
+
+    .copyright {
+        color: @caption-color;
+        font-family: @caption-font;
+        font-size: 1.1rem;
+        padding-top: 0.6rem;
+        text-align: center;
     }
 </style>

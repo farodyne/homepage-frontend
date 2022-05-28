@@ -61,7 +61,9 @@
         }
 
         img {
+            height: 90px;
             transition-duration: 0.25s;
+            width: 220px;
 
             &:hover {
                 transform: scale(1.05);
